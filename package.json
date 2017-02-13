@@ -1,0 +1,59 @@
+{
+    "name": "autoend",
+    "displayName": "autoend",
+    "description": "Automatically moves semi colon to the end of the line and move you to next line.",
+    "version": "0.0.1",
+    "license":"GPL-2.0",
+    "publisher": "thousandtyone",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "icon": "images/icon.png",
+    "homepage": "https://github.com/thousandtyone/autoend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thousandtyone/autoend"
+    },
+    "bugs": {
+        "url": "https://github.com/thousandtyone/autoend/issues"
+    },
+    "keywords": [
+        "semicolon",
+        "semi colon",
+        "productivity",
+        "code faster"
+    ],
+
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.autoEnd"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.autoEnd",
+            "title": "Autoend with Semi Colon"
+        }],
+        "keybindings":[
+            {
+                "command": "extension.autoEnd",
+                "key": ";"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
