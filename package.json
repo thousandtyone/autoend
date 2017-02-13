@@ -1,8 +1,8 @@
 {
     "name": "autoend",
     "displayName": "autoend",
-    "description": "Automatically moves semi colon to the end of the line and move you to next line.",
-    "version": "1.0.0",
+    "description": "Automatically inserts / moves semicolon to the end of the line and moves you to next line.",
+    "version": "1.0.1",
     "license":"GPL-2.0",
     "publisher": "thousandtyone",
     "engines": {
@@ -21,7 +21,9 @@
         "semicolon",
         "semi colon",
         "productivity",
-        "code faster"
+        "code faster",
+        "automatically insert semicolon",
+        "automatically insert semi colon"
     ],
 
     "categories": [
