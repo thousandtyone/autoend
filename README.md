@@ -38,3 +38,12 @@ First version released.
 
 Initial release of Extension with basic features.
 
+### LICENSE
+
+The code is currently released under GPL-2 but if you would preffer a different license please reach out to us and we'll happy to help you. If you would like to get involved in the project feel free to reach out to us as well.
+
+### Contact
+
+contact@thousandtyone.com
+
+
