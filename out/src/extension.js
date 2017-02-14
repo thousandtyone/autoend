@@ -34,7 +34,8 @@ function activate(context) {
 }
 exports.activate = activate;
 function OkToPutSemiColonInCurrentPosition(trimmedText, lineNumber, columnNumber) {
-    var textIsALoop = trimmedText.startsWith('for') | trimmedText.startsWith('foreach');
+    var textIsALoop = trimmedText.startsWith('for(') | trimmedText.startsWith('foreach(')
+        | trimmedText.startsWith('for (') | trimmedText.startsWith('foreach (');
     var textIsAComment = trimmedText.startsWith("//");
     var alreadyEndsWithSemiColon = trimmedText.endsWith(';');
     return textIsALoop || textIsAComment || alreadyEndsWithSemiColon;
