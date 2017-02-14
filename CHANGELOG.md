@@ -11,3 +11,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Initial Implementation from Scratch.
 - Support for Automatically Placing Semi Colons in the end of the line when you type them.
 - Intelligence for 'for' and 'for-each' loops so semi-colons in these constructs are not moved to end of line.
+
+## [1.0.6] - 15th February 2017
+- Improved logic to differicate true for and foreach loops from variables which begin with word 'for' or 'foreach' e.g. 'formatter'.
