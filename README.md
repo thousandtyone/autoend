@@ -42,8 +42,12 @@ Initial release of Extension with basic features.
 
 The code is currently released under GPL-2 but if you would preffer a different license please reach out to us and we'll be happy to help you. If you would like to get involved in the project feel free to reach out to us as well.
 
+### Feedback
+
+The extension is free; but we **fully** support it and stand behind it. If you face any issues with this extension or have ideas that would improve the extension please reach out to us at contact@thousandtyone.com.
+
+(We have a feeling you'll find us responsive and willing to help.:))
+
 ### Contact
 
 contact@thousandtyone.com
-
-
