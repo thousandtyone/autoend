@@ -14,3 +14,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [1.0.6] - 15th February 2017
 - Improved logic to differicate true for and foreach loops from variables which begin with word 'for' or 'foreach' e.g. 'formatter'.
+
+## [1.0.8] - 25th February 2017
+- Fixed the Issue reported at: https://github.com/thousandtyone/autoend/issues/1
