@@ -24,5 +24,5 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Setting "autoend.autoInsertNewline" Defaults to true but you can override it using Standard VS Code Settings if you do not want autoend to automatically move to the next line after inserting semi-colons.
 - Note: Configuration is only read when plugin is activated so if you change the setting you need to restart VSCode.
 
-## [1.0.15] - 26th February 2017
+## [1.0.16] - 26th February 2017
 - Minor changes to wordings in Licence File to include Plugin Name and Contact Details.
