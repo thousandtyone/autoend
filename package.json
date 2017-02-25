@@ -2,7 +2,7 @@
     "name": "autoend",
     "displayName": "Autoend",
     "description": "Automatically inserts / moves semicolon to the end of the line and moves you to next line.",
-    "version": "1.0.8",
+    "version": "1.0.10",
     "license":"GPL-2.0",
     "publisher": "thousandtyone",
     "engines": {
@@ -29,21 +29,32 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.autoEnd"
+        "onCommand:extension.autoend"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
-            "command": "extension.autoEnd",
+            "command": "extension.autoend",
             "title": "Autoend with Semi Colon"
         }],
         "keybindings":[
             {
-                "command": "extension.autoEnd",
+                "command": "extension.autoend",
                 "key": ";",
                 "when": "editorTextFocus"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+             "title": "ThousandtyOne Autoend",
+             "properties": {
+                "autoend.autoInsertNewline":{
+                    "type":"boolean",
+                    "default":true,
+                    "description": "Automatically inserts newlines after moving semicolon to the end of the line"
+                }        
+             }
+        }
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",

@@ -9,14 +9,17 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    //console.log('Congratulations, your extension "autoend" is now active!');
+    // console.log('Congratulations, your extension "autoend" is now active!');
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
     let editor = vscode.window.activeTextEditor;
-                
-    let disposable = vscode.commands.registerCommand('extension.autoEnd', () => {
+    let autoInsertNewline = vscode.workspace.getConfiguration('autoend').get('autoInsertNewline');
+    if(autoInsertNewline == null || autoInsertNewline == undefined)
+        autoInsertNewline = true; 
+
+    let disposable = vscode.commands.registerCommand('extension.autoend', () => {
         let lineNumber : number = editor.selection.active.line;
                 let columnNumber : number = editor.selection.active.character;
                 let lineText = editor.document.lineAt(lineNumber).text;
@@ -33,7 +36,11 @@ export function activate(context: vscode.ExtensionContext) {
                     editor.edit((textEditor)=>{       
                         textEditor.insert(new vscode.Position(lineNumber,lineLength), ';');
                     })
-                    vscode.commands.executeCommand('editor.action.insertLineAfter');
+                    
+                    if(autoInsertNewline)
+                        vscode.commands.executeCommand('editor.action.insertLineAfter');
+                    else
+                        vscode.commands.executeCommand('cursorEnd')
                 }    
     });
 
