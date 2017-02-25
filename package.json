@@ -2,7 +2,7 @@
     "name": "autoend",
     "displayName": "Autoend",
     "description": "Automatically inserts / moves semicolon to the end of the line and moves you to next line.",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "license":"GPL-2.0",
     "publisher": "thousandtyone",
     "engines": {

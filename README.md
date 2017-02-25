@@ -24,7 +24,7 @@ Which Automatically Produces:
 
 When the extension moves the semi-colon to the end of the line it also moves your cursor to the next line, thereby making your typing very fluid without having to manually put semi-colons explictly at the end of each line or even having to hit the enter key to move to the next line.
 
-> **Note**: You can override automtic move to new line after semi-colon. Use autoend.autoInsertNewline in VS Code settings to control how autoend automically inserts a new line and moves you to the new line. Default behavior is to automtically move to new line.
+> **Note**: Use autoend.autoInsertNewline in VS Code settings to control if autoend automically inserts a new line and moves you to the new line. Default behavior is to automtically move to new line. To prevent automatic move to new line change this setting to false. Visual Studio Code restart is required after setting change.
 
 The Extension understands context of the code in which it executes; so semi-colons will not move to end of line automatically for, 'for' or 'foreach' loops!
 
