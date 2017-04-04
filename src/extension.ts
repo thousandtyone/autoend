@@ -23,9 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if(autoendWithColon == null || autoendWithColon == undefined)
         autoendWithColon == false;
-   
-  
-
+        
     if(autoendWithColon == true)
     {
         let colonDisposable = vscode.commands.registerCommand('extension.colon.autoend', () => {
