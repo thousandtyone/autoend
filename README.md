@@ -28,7 +28,7 @@ When the extension moves the semi-colon to the end of the line it also moves you
 
 The Extension understands context of the code in which it executes; so semi-colons will not move to end of line automatically for, 'for' or 'foreach' loops!
 
-> **Note**: For languages like Python which use colons instead of semi-colons to end the line use the autoend.autoendWithColon setting and set it to true. This disables moving of semi-colons to the end of the line and does the same thing with colons to make experience with languages like python (which use colons instead of semi-colons to end a line or indicate starting of code blocks) better.
+> **Note**: For languages like Python which use colons instead of semi-colons to end the line use the autoend.autoendWithColon setting and set it to true. This disables moving of semi-colons to the end of the line and does the same thing with colons to make experience with languages like python (which use colons instead of semi-colons to end a line or indicate starting of code blocks) better. Also note that in this mode the default semi-colon key function as is and you have to use ALT+: for the plugin to automatically move your colons to the end of line. This is done to play nice with Vim Plugins. You can of course override this behavior and map the defaut semi-colon key to extension.colon.autoend command in keybindings.json described https://code.visualstudio.com/docs/getstarted/keybindings if you dont use Vim based Plugins.
 
 ## Known Issues
 

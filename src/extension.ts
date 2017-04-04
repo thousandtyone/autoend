@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if(autoendWithColon == null || autoendWithColon == undefined)
         autoendWithColon == false;
-    
+   
   
 
     if(autoendWithColon == true)
@@ -42,7 +42,8 @@ export function activate(context: vscode.ExtensionContext) {
         let semicolonDisposable = vscode.commands.registerCommand('extension.autoend', () => {
               FireColonOrSemiColonCommand(editor,autoInsertNewline, ';');  
          });
-         let colonDisposable = vscode.commands.registerCommand('extension.colon.autoend', () => {
+        
+        let colonDisposable = vscode.commands.registerCommand('extension.colon.autoend', () => {
           IgnoreAndPutCharacterInCurrentPostion(editor, ':')
         });
         context.subscriptions.push(colonDisposable);
