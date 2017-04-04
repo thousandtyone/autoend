@@ -26,3 +26,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [1.0.16] - 26th February 2017
 - Minor changes to wordings in Licence File to include Plugin Name and Contact Details.
+
+
+## [1.1.0] - 3rd April 2017
+- Support for moving Colons to the end of the line for languages like Python.

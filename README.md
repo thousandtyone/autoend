@@ -28,6 +28,8 @@ When the extension moves the semi-colon to the end of the line it also moves you
 
 The Extension understands context of the code in which it executes; so semi-colons will not move to end of line automatically for, 'for' or 'foreach' loops!
 
+> **Note**: For languages like Python which use colons instead of semi-colons to end the line use the autoend.autoendWithColon setting and set it to true. This disables moving of semi-colons to the end of the line and does the same thing with colons to make experience with languages like python (which use colons instead of semi-colons to end a line or indicate starting of code blocks) better.
+
 ## Known Issues
 
 Please Report all issues in Github.

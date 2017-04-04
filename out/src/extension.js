@@ -13,32 +13,62 @@ function activate(context) {
     // The commandId parameter must match the command field in package.json
     let editor = vscode.window.activeTextEditor;
     let autoInsertNewline = vscode.workspace.getConfiguration('autoend').get('autoInsertNewline');
+    let autoendWithColon = vscode.workspace.getConfiguration('autoend').get('autoendWithColon');
     if (autoInsertNewline == null || autoInsertNewline == undefined)
         autoInsertNewline = true;
-    let disposable = vscode.commands.registerCommand('extension.autoend', () => {
-        let lineNumber = editor.selection.active.line;
-        let columnNumber = editor.selection.active.character;
-        let lineText = editor.document.lineAt(lineNumber).text;
-        let lineLength = lineText.length;
-        let trimmedText = lineText.replace(/\s+/g, " ").trim();
-        if (OkToPutSemiColonInCurrentPosition(trimmedText, lineNumber, columnNumber)) {
-            editor.edit((textEditor) => {
-                textEditor.insert(new vscode.Position(lineNumber, columnNumber), ';');
-            });
-        }
-        else {
-            editor.edit((textEditor) => {
-                textEditor.insert(new vscode.Position(lineNumber, lineLength), ';');
-            });
-            if (autoInsertNewline)
-                vscode.commands.executeCommand('editor.action.insertLineAfter');
-            else
-                vscode.commands.executeCommand('cursorEnd');
-        }
-    });
-    context.subscriptions.push(disposable);
+    if (autoendWithColon == null || autoendWithColon == undefined)
+        autoendWithColon == false;
+    if (autoendWithColon == true) {
+        let colonDisposable = vscode.commands.registerCommand('extension.colon.autoend', () => {
+            FireColonOrSemiColonCommand(editor, autoInsertNewline, ':');
+        });
+        let semicolonDisposable = vscode.commands.registerCommand('extension.autoend', () => {
+            IgnoreAndPutCharacterInCurrentPostion(editor, ';');
+        });
+        context.subscriptions.push(colonDisposable);
+        context.subscriptions.push(semicolonDisposable);
+    }
+    else {
+        let semicolonDisposable = vscode.commands.registerCommand('extension.autoend', () => {
+            FireColonOrSemiColonCommand(editor, autoInsertNewline, ';');
+        });
+        let colonDisposable = vscode.commands.registerCommand('extension.colon.autoend', () => {
+            IgnoreAndPutCharacterInCurrentPostion(editor, ':');
+        });
+        context.subscriptions.push(colonDisposable);
+        context.subscriptions.push(semicolonDisposable);
+    }
 }
 exports.activate = activate;
+function FireColonOrSemiColonCommand(editor, autoInsertNewline, character) {
+    let lineNumber = editor.selection.active.line;
+    let columnNumber = editor.selection.active.character;
+    let lineText = editor.document.lineAt(lineNumber).text;
+    let lineLength = lineText.length;
+    let trimmedText = lineText.replace(/\s+/g, " ").trim();
+    if (OkToPutSemiColonInCurrentPosition(trimmedText, lineNumber, columnNumber)) {
+        IgnoreAndPutCharacterInCurrentPostion(editor, character);
+    }
+    else {
+        editor.edit((textEditor) => {
+            textEditor.insert(new vscode.Position(lineNumber, lineLength), character);
+        });
+        if (autoInsertNewline)
+            vscode.commands.executeCommand('editor.action.insertLineAfter');
+        else
+            vscode.commands.executeCommand('cursorEnd');
+    }
+}
+function IgnoreAndPutCharacterInCurrentPostion(editor, character) {
+    let lineNumber = editor.selection.active.line;
+    let columnNumber = editor.selection.active.character;
+    let lineText = editor.document.lineAt(lineNumber).text;
+    let lineLength = lineText.length;
+    let trimmedText = lineText.replace(/\s+/g, " ").trim();
+    editor.edit((textEditor) => {
+        textEditor.insert(new vscode.Position(lineNumber, columnNumber), character);
+    });
+}
 function OkToPutSemiColonInCurrentPosition(trimmedText, lineNumber, columnNumber) {
     var textIsALoop = trimmedText.startsWith('for(') | trimmedText.startsWith('foreach(')
         | trimmedText.startsWith('for (') | trimmedText.startsWith('foreach (');
